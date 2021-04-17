@@ -47,12 +47,12 @@ minetest.register_chatcommand("perf", {
 			table.insert(sorted, {name = name, data = data})
 		end
 		table.sort(sorted, function(a, b) return a.data.accum > b.data.accum end)
-		minetest.chat_send_player(name, string.format("%14s\t%14s\t%14s\t%s (%s)", "accumulated", "calls", "average", "name", "source"))
+		minetest.chat_send_player(name, string.format("[perf] %14s\t%14s\t%14s\t%s (%s)", "accumulated", "calls", "average", "name", "source"))
 		for i, func in ipairs(sorted) do
 			if i > 50 then
 				break
 			end
-			minetest.chat_send_player(name, string.format("%14f\t%14d\t%14f\t%s (%s)", func.data.accum, func.data.calls, func.data.avg, func.name, func.data.info))
+			minetest.chat_send_player(name, string.format("[perf] %14f\t%14d\t%14f\t%s (%s)", func.data.accum, func.data.calls, func.data.avg, func.name, func.data.info))
 		end
 	end,
 })
