@@ -5,7 +5,7 @@ function type(arg)
 	if arg == nil then
 		return "nil"
 	else
-		return type(arg)
+		return type_old(arg)
 	end
 end
 
