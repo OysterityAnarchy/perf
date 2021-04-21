@@ -15,7 +15,7 @@ local function override_table(tbl, name, seen)
 			seen[v] = true
 			local t = type(v)
 			local n = name .. tostring(k)
-			if t == "function" and v ~= os.clock and v ~= unpack then
+			if t == "function" and v ~= os.clock and v ~= unpack and v ~= mcl_enchanting.can_enchant then
 				local info = debug.getinfo(v).short_src
 				rawset(tbl, k, function(...)
 					local tm_start = os.clock()
